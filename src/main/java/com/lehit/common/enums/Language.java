@@ -1,4 +1,4 @@
-package com.lehit.profiles.common.enums;
+package com.lehit.common.enums;
 
 public enum Language {
     en,
