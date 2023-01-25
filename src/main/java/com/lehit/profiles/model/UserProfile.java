@@ -14,12 +14,6 @@ import org.springframework.data.domain.Persistable;
 
 import java.util.UUID;
 
-@NamedEntityGraph(
-        name = "including-therapist",
-        attributeNodes = {
-                @NamedAttributeNode("parent")
-        }
-)
 
 @Entity
 @Getter @Setter

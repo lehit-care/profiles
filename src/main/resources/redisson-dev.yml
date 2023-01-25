@@ -1,0 +1,8 @@
+masterSlaveServersConfig:
+  retryAttempts: 3
+  retryInterval: 1500
+  loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+  masterAddress: "redis://xx"
+  slaveAddresses:
+    - "redis://xx"
+    - "redis://xx"
