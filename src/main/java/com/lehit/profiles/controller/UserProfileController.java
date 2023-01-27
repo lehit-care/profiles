@@ -26,7 +26,7 @@ public class UserProfileController {
     private boolean kafkaEnabled;
 
     @Operation(summary = "Create a client Profile.")
-    @PutMapping("/profiles/{profileId}")
+    @PutMapping("/{profileId}")
     @ResponseStatus(HttpStatus.CREATED)
     public UserProfile saveProfile(@PathVariable UUID profileId, @RequestBody UserProfile userProfile){
         UserProfile profile = profileService.saveProfile(profileId, userProfile);
@@ -37,7 +37,7 @@ public class UserProfileController {
 
 
     @Operation(summary = "Sets client timeZone.")
-    @PostMapping("/profiles/{profileId}/set-timezone")
+    @PostMapping("/{profileId}/set-timezone")
     public UserProfile setUserTimeZone(@PathVariable UUID profileId,
                                                   @Parameter(description = "Allowed zones:  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. (TZ database name)")
                                                   @RequestHeader String timeZoneId){
@@ -46,7 +46,7 @@ public class UserProfileController {
 
 
     @Operation(summary = "Deletes a client Profile. Deletes all the user data.")
-    @DeleteMapping("/profiles/{profileId}")
+    @DeleteMapping("/{profileId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProfile(@PathVariable UUID profileId){
         profileService.deleteProfile(profileId);
