@@ -29,6 +29,9 @@ public class UserProfileService {
     }
 
 
+    public UserProfile findById(UUID profileId){
+        return profilesRepository.findById(profileId).orElseThrow();
+    }
 
     @Transactional
     public UserProfile setTimeZone(UUID profileId, String zoneId){

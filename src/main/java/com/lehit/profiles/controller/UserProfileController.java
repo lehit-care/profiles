@@ -35,6 +35,11 @@ public class UserProfileController {
         return profile;
     }
 
+    @GetMapping("/{profileId}")
+    public UserProfile getMyProfile( @PathVariable UUID profileId){
+        return profileService.findById(profileId);
+    }
+
 
     @Operation(summary = "Sets client timeZone.")
     @PostMapping("/{profileId}/set-timezone")
