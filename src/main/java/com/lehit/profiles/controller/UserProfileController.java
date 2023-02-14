@@ -25,7 +25,7 @@ public class UserProfileController {
     @Value("${spring.kafka.enabled}")
     private boolean kafkaEnabled;
 
-    @Operation(summary = "Create a client Profile.")
+    @Operation(summary = "Creates a client Profile.")
     @PutMapping("/{profileId}")
     @ResponseStatus(HttpStatus.CREATED)
     public UserProfile saveProfile(@PathVariable UUID profileId, @RequestBody UserProfile userProfile){
