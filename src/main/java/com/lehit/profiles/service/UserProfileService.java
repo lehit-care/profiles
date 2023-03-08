@@ -1,7 +1,7 @@
 package com.lehit.profiles.service;
 
 import com.lehit.profiles.model.UserProfile;
-import com.lehit.profiles.repository.TherapistProfilesRepository;
+import com.lehit.profiles.repository.AuthorsRepository;
 import com.lehit.profiles.repository.UserProfilesRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,6 @@ import java.util.UUID;
 @Transactional(readOnly = true)
 public class UserProfileService {
     private final UserProfilesRepository profilesRepository;
-    private final TherapistProfilesRepository therapistProfilesRepository;
 
     @Transactional
     public UserProfile saveProfile(UUID profileId, UserProfile userProfile){

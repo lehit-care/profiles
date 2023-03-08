@@ -1,7 +1,7 @@
 package com.lehit.profiles.controller;
 
-import com.lehit.profiles.model.TherapistProfile;
-import com.lehit.profiles.repository.TherapistProfilesRepository;
+import com.lehit.profiles.model.Author;
+import com.lehit.profiles.repository.AuthorsRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,27 +12,27 @@ import java.util.UUID;
 
 
 @RestController
-@RequestMapping("/api/v1/therapist-profiles")
+@RequestMapping("/api/v1/authors")
 @Slf4j
 @RequiredArgsConstructor
-public class TherapistProfileController {
-    private final TherapistProfilesRepository profilesRepository;
+public class AuthorController {
+    private final AuthorsRepository profilesRepository;
 
 
-    @Operation(summary = "Creates a Therapist Profile.")
+    @Operation(summary = "Creates an Author Profile.")
     @PutMapping("/{accountId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public TherapistProfile saveProfile(@PathVariable UUID accountId, @RequestBody TherapistProfile profile){
+    public Author saveProfile(@PathVariable UUID accountId, @RequestBody Author profile){
         profile.setId(accountId);
         return profilesRepository.save(profile);
     }
 
     @GetMapping("/{profileId}")
-    public TherapistProfile getMyProfile( @PathVariable UUID profileId){
+    public Author getMyProfile(@PathVariable UUID profileId){
         return profilesRepository.findById(profileId).orElseThrow();
     }
 
-    @Operation(summary = "Deletes a Therapist Profile.")
+    @Operation(summary = "Deletes an Author Profile.")
     @DeleteMapping("/{profileId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProfile(@PathVariable UUID profileId){

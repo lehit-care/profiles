@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor @NoArgsConstructor
 @Builder
 @ToString(onlyExplicitlyIncluded = true) @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-@Cache(region = "therapistProfileCache", usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(region = "adminProfileCache", usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class AdminProfile extends Auditable implements Persistable<UUID>{
     @Schema( accessMode = Schema.AccessMode.READ_ONLY)
     @Id
